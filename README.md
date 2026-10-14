@@ -86,3 +86,32 @@ Use the appropriate script for your device and verify its configuration before e
 ## License
 
 See the repository's `LICENSE` file once added.
+
+## Script Reference
+
+| Script | Purpose |
+|---|---|
+| `aruba2530_getvlans.py` | Retrieve VLAN information from an Aruba 2530 switch. |
+| `aruba2530_login.py` | Demonstrate SSH login to an Aruba 2530 switch. |
+| `aruba2530_logout.py` | Demonstrate SSH logout/session handling for an Aruba 2530 switch. |
+| `aruba2530_netmiko.py` | Demonstrate switch connectivity using Netmiko. |
+| `aruba2530_netmiko_showversion.py` | Retrieve switch version information using Netmiko. |
+| `aruba2530_paramiko.py` | Demonstrate SSH connectivity using Paramiko. |
+| `aruba2530_paramiko_rocommand.py` | Execute a read-only command using Paramiko. |
+| `hp1950_netmiko.py` | Demonstrate Netmiko connectivity to an HP 1950 switch. |
+| `hp1950_netmiko_dispversion.py` | Demonstrate HP 1950 extended CLI authentication and version retrieval. |
+| `hpe5510_netmiko.py` | Demonstrate Netmiko connectivity and command execution on an HPE 5510 switch. |
+
+**Note:** These scripts are lab examples. Review each script and verify the target device, credentials, SSH port, and command support before execution.
+
+## Troubleshooting
+
+- **ModuleNotFoundError:** Activate the virtual environment and run `pip install -r requirements.txt`.
+- **SSH connection timeout:** Verify the switch IP address, network reachability, SSH service, and configured SSH port.
+- **Authentication failure:** Verify the username and password in your local `credentials.py` file.
+- **HP 1950 extended CLI failure:** Verify that extended CLI mode is supported and that the required confirmation and extended CLI password are handled correctly.
+- **Command not recognized:** Check the switch model, firmware version, CLI mode, and command syntax.
+- **Credentials module not found:** Ensure `credentials.py` exists in the project directory and matches the structure of `credentials.example.py`.
+- **Permission or connection errors:** Check network access, account privileges, and device-side restrictions.
+
+Run these examples only against switches you own or are authorized to administer.
