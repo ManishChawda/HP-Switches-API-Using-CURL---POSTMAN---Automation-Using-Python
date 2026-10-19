@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "87a484bd-9166-48e1-9bee-0f44ddd11118",
+		"name": "HP Switches API Copy",
+		"description": "Public-safe template. Replace placeholder variables in a LOCAL Postman environment before running. Do not commit real passwords, tokens, or private device addresses. Use trusted TLS certificates where possible.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16183379"
+	},
+	"item": [
+		{
+			"name": "Aruba-2530-Login-Sessions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userName\": \"{{aruba_username}}\",\n    \"password\": \"{{aruba_password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{aruba_url}}/rest/v1/login-sessions",
+					"host": [
+						"{{aruba_url}}"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"login-sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aruba-2530-Get-VLAN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{aruba_url}}/rest/v1/vlans",
+					"host": [
+						"{{aruba_url}}"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"vlans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aruba-2530-Logout-Sessions",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{aruba_url}}/rest/v1/login-sessions",
+					"host": [
+						"{{aruba_url}}"
+					],
+					"path": [
+						"rest",
+						"v1",
+						"login-sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HPE-5510-Login-Sessions",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{hpe5510_password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{hpe5510_username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{hpe5510_url}}/api/v1/Tokens",
+					"host": [
+						"{{hpe5510_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HPE-5510-GetConfigFiles",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{hpe5510_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{hpe5510_url}}/api/v1/Configuration/Files",
+					"host": [
+						"{{hpe5510_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Configuration",
+						"Files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HP-1950-Login-Sessions",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{hp1950_username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{hp1950_password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{hp1950_url}}/api/v1/Tokens",
+					"host": [
+						"{{hp1950_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HP-1950-GetConfigFiles",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "{{hp1950_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{hp1950_url}}/api/v1/Configuration/Files",
+					"host": [
+						"{{hp1950_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Configuration",
+						"Files"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "aruba_url",
+			"value": "https://<ARUBA_2530_IP>",
+			"type": "default"
+		},
+		{
+			"key": "aruba_username",
+			"value": "<ARUBA_USERNAME>",
+			"type": "default"
+		},
+		{
+			"key": "aruba_password",
+			"value": "<SET_LOCALLY>",
+			"type": "default"
+		},
+		{
+			"key": "hp1950_url",
+			"value": "https://<HP_1950_IP>",
+			"type": "default"
+		},
+		{
+			"key": "hp1950_username",
+			"value": "<HP1950_USERNAME>",
+			"type": "default"
+		},
+		{
+			"key": "hp1950_password",
+			"value": "<SET_LOCALLY>",
+			"type": "default"
+		},
+		{
+			"key": "hp1950_token",
+			"value": "<SET_LOCALLY_AFTER_LOGIN>",
+			"type": "default"
+		},
+		{
+			"key": "hpe5510_url",
+			"value": "https://<HPE_5510_IP>",
+			"type": "default"
+		},
+		{
+			"key": "hpe5510_username",
+			"value": "<HPE5510_USERNAME>",
+			"type": "default"
+		},
+		{
+			"key": "hpe5510_password",
+			"value": "<SET_LOCALLY>",
+			"type": "default"
+		},
+		{
+			"key": "hpe5510_token",
+			"value": "<SET_LOCALLY_AFTER_LOGIN>",
+			"type": "default"
+		}
+	]
+}
